@@ -1,0 +1,921 @@
+export const products = [
+  {
+    id: 1,
+    title: "سایه‌بان سولارا",
+    description:
+      "چتر و سایه‌بان تنها یک پوشش نیست نمادی از آرامش و آسایش در فضای باز شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر محیطی را به فضایی لوکس، خنک و دلنشین تبدیل می‌کند.",
+    price: 8500000,
+    discount: 12,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد پوسیدگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "چوب راش",
+        "بدون سوخت",
+        "پلی یورتان",
+        "120 x 40 cm",
+        "12 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/shades/shade-solara-one.png",
+      "/images/products/shades/shade-solara-two.png",
+      "/images/products/shades/shade-solara-three.png",
+      "/images/products/shades/shade-solara-four.png",
+    ],
+    category: "سایه‌بان",
+  },
+  {
+    id: 2,
+    title: "گلدان ولوره",
+    description:
+      "گلدان تنها محفظه‌ای برای نگهداری گل و گیاه نیست عنصری از زیبایی و طراوت است که به فضا روح می‌بخشد. طراحی مدرن کیفیت ماندگار و جلوه‌ای چشم‌نواز هر محیطی را به فضایی لوکس، دلنشین و سرشار از حس زندگی تبدیل می‌کند.",
+    price: 3200000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد باکتری",
+        "مقاومت بالا در برابر ضربه",
+        "طراحی لوکس",
+      ],
+      technical: [
+        "سنگ مرمر",
+        "بدون سوخت",
+        "ریور استون",
+        "45 x 45 cm",
+        "18 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/pots/pot-vellore-one.png",
+      "/images/products/pots/pot-vellore-two.png",
+      "/images/products/pots/pot-vellore-three.png",
+      "/images/products/pots/pot-vellore-four.png",
+    ],
+    category: "گلدان",
+  },
+  {
+    id: 3,
+    title: "آتشدان آرئون",
+    description:
+      "آتشدان تنها یک وسیله گرمایشی نیست؛ قلب تپنده دورهمی‌های شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر فضای باز را به محیطی لوکس و دعوت‌کننده تبدیل می‌کند.",
+    price: 18400000,
+    discount: 23,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "استیل ضد زنگ",
+        "مقاومت بالا در برابر حرارت",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "فولاد کورتن",
+        "چوب و زغال",
+        "رنگ نسوز مات",
+        "60 x 60 cm",
+        "34 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/hearths/hearth-areon-one.png",
+      "/images/products/hearths/hearth-areon-two.png",
+      "/images/products/hearths/hearth-areon-three.png",
+      "/images/products/hearths/hearth-areon-four.png",
+    ],
+    category: "آتشدان",
+  },
+  {
+    id: 4,
+    title: "صندلی استخر نووارا",
+    description:
+      "صندلی و تخت استخری تنها یک وسیله برای استراحت نیست گوشه‌ای از آرامش و لذت در فضای زندگی شماست. طراحی مدرن راحتی بی‌نظیر و کیفیت ماندگار هر کنار استخری را به فضایی لوکس، دلنشین و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 6900000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد رطوبت",
+        "مقاومت بالا در برابر آب",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "چوب ترموود",
+        "بدون سوخت",
+        "محافظ یو وی",
+        "190 x 65 cm",
+        "9 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/chairs/chair-novara-one.png",
+      "/images/products/chairs/chair-novara-two.png",
+      "/images/products/chairs/chair-novara-three.png",
+      "/images/products/chairs/chair-novara-four.png",
+    ],
+    category: "صندلی",
+  },
+  {
+    id: 5,
+    title: "چراغ ونتورا",
+    description:
+      "چراغ تنها یک منبع نور نیست؛ عنصری از زیبایی و آرامش است که به فضا جان می‌بخشد طراحی مدرن، نورپردازی چشم‌نواز و کیفیت ممتاز هر محیطی را به فضایی گرم، لوکس و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 4800000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد خوردگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "آلمینیوم",
+        "برق شهری ۲۲۰V",
+        "پودری الکترواستاتیک",
+        "H: 180 cm",
+        "4.5 kg",
+        "12W",
+      ],
+    },
+    images: [
+      "/images/products/lights/light-ventura-one.png",
+      "/images/products/lights/light-ventura-two.png",
+      "/images/products/lights/light-ventura-three.png",
+      "/images/products/lights/light-ventura-four.png",
+    ],
+    category: "چراغ",
+  },
+
+  {
+    id: 6,
+    title: "گلدان سولارا",
+    description:
+      "گلدان تنها محفظه‌ای برای نگهداری گل و گیاه نیست عنصری از زیبایی و طراوت است که به فضا روح می‌بخشد. طراحی مدرن کیفیت ماندگار و جلوه‌ای چشم‌نواز هر محیطی را به فضایی لوکس، دلنشین و سرشار از حس زندگی تبدیل می‌کند.",
+    price: 2100000,
+    discount: 25,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد باکتری",
+        "مقاومت بالا در برابر ضربه",
+        "طراحی لوکس",
+      ],
+      technical: [
+        "فایبرگلاس",
+        "بدون سوخت",
+        "رنگ اکریلیک",
+        "35 x 35 cm",
+        "6 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/pots/pot-solara-one.png",
+      "/images/products/pots/pot-solara-two.png",
+      "/images/products/pots/pot-solara-three.png",
+      "/images/products/pots/pot-solara-four.png",
+    ],
+    category: "گلدان",
+  },
+  {
+    id: 7,
+    title: "آتشدان ولوره",
+    description:
+      "آتشدان تنها یک وسیله گرمایشی نیست؛ قلب تپنده دورهمی‌های شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر فضای باز را به محیطی لوکس و دعوت‌کننده تبدیل می‌کند.",
+    price: 14600000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "استیل ضد زنگ",
+        "مقاومت بالا در برابر حرارت",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "فولاد کورتن",
+        "چوب و زغال",
+        "رنگ نسوز مات",
+        "50 x 50 cm",
+        "28 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/hearths/hearth-vellore-one.png",
+      "/images/products/hearths/hearth-vellore-two.png",
+      "/images/products/hearths/hearth-vellore-three.png",
+      "/images/products/hearths/hearth-vellore-four.png",
+    ],
+    category: "آتشدان",
+  },
+  {
+    id: 8,
+    title: "صندلی استخر آرئون",
+    description:
+      "صندلی و تخت استخری تنها یک وسیله برای استراحت نیست گوشه‌ای از آرامش و لذت در فضای زندگی شماست. طراحی مدرن راحتی بی‌نظیر و کیفیت ماندگار هر کنار استخری را به فضایی لوکس، دلنشین و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 9200000,
+    discount: 20,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد رطوبت",
+        "مقاومت بالا در برابر آب",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "آلمینیوم آنودایز",
+        "بدون سوخت",
+        "پارچه تکستیلن",
+        "200 x 70 cm",
+        "11 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/chairs/chair-areon-one.png",
+      "/images/products/chairs/chair-areon-two.png",
+      "/images/products/chairs/chair-areon-three.png",
+      "/images/products/chairs/chair-areon-four.png",
+    ],
+    category: "صندلی",
+  },
+  {
+    id: 9,
+    title: "چراغ نووارا",
+    description:
+      "چراغ تنها یک منبع نور نیست؛ عنصری از زیبایی و آرامش است که به فضا جان می‌بخشد طراحی مدرن، نورپردازی چشم‌نواز و کیفیت ممتاز هر محیطی را به فضایی گرم، لوکس و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 3600000,
+    discount: 8,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد خوردگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "آهن گالوانیزه",
+        "برق شهری ۲۲۰V",
+        "رنگ اپوکسی",
+        "H: 140 cm",
+        "3.2 kg",
+        "9W",
+      ],
+    },
+    images: [
+      "/images/products/lights/light-novara-one.png",
+      "/images/products/lights/light-novara-two.png",
+      "/images/products/lights/light-novara-three.png",
+      "/images/products/lights/light-novara-four.png",
+    ],
+    category: "چراغ",
+  },
+  {
+    id: 10,
+    title: "سایه‌بان ونتورا",
+    description:
+      "چتر و سایه‌بان تنها یک پوشش نیست نمادی از آرامش و آسایش در فضای باز شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر محیطی را به فضایی لوکس، خنک و دلنشین تبدیل می‌کند.",
+    price: 11200000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد پوسیدگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "آلمینیوم پروفیل",
+        "بدون سوخت",
+        "پارچه ضد آب ۳۰۰D",
+        "300 x 300 cm",
+        "22 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/shades/shade-ventura-one.png",
+      "/images/products/shades/shade-ventura-two.png",
+      "/images/products/shades/shade-ventura-three.png",
+      "/images/products/shades/shade-ventura-four.png",
+    ],
+    category: "سایه‌بان",
+  },
+  {
+    id: 11,
+    title: "آتشدان سولارا",
+    description:
+      "آتشدان تنها یک وسیله گرمایشی نیست؛ قلب تپنده دورهمی‌های شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر فضای باز را به محیطی لوکس و دعوت‌کننده تبدیل می‌کند.",
+    price: 21500000,
+    discount: 17,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "استیل ضد زنگ",
+        "مقاومت بالا در برابر حرارت",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "استیل ۳۰۴",
+        "چوب و زغال",
+        "رنگ نسوز مات",
+        "70 x 70 cm",
+        "41 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/hearths/hearth-solara-one.png",
+      "/images/products/hearths/hearth-solara-two.png",
+      "/images/products/hearths/hearth-solara-three.png",
+      "/images/products/hearths/hearth-solara-four.png",
+    ],
+    category: "آتشدان",
+  },
+  {
+    id: 12,
+    title: "صندلی استخر ولوره",
+    description:
+      "صندلی و تخت استخری تنها یک وسیله برای استراحت نیست گوشه‌ای از آرامش و لذت در فضای زندگی شماست. طراحی مدرن راحتی بی‌نظیر و کیفیت ماندگار هر کنار استخری را به فضایی لوکس، دلنشین و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 7500000,
+    discount: 15,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد رطوبت",
+        "مقاومت بالا در برابر آب",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "چوب ترموود",
+        "بدون سوخت",
+        "روغن چوب طبیعی",
+        "185 x 60 cm",
+        "8 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/chairs/chair-vellore-one.png",
+      "/images/products/chairs/chair-vellore-two.png",
+      "/images/products/chairs/chair-vellore-three.png",
+      "/images/products/chairs/chair-vellore-four.png",
+    ],
+    category: "صندلی",
+  },
+  {
+    id: 13,
+    title: "چراغ آرئون",
+    description:
+      "چراغ تنها یک منبع نور نیست؛ عنصری از زیبایی و آرامش است که به فضا جان می‌بخشد طراحی مدرن، نورپردازی چشم‌نواز و کیفیت ممتاز هر محیطی را به فضایی گرم، لوکس و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 6200000,
+    discount: 15,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد خوردگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "برنج ریخته‌گری",
+        "برق شهری ۲۲۰V",
+        "پوشش نیکل",
+        "H: 220 cm",
+        "7.8 kg",
+        "18W",
+      ],
+    },
+    images: [
+      "/images/products/lights/light-areon-one.png",
+      "/images/products/lights/light-areon-two.png",
+      "/images/products/lights/light-areon-three.png",
+      "/images/products/lights/light-areon-four.png",
+    ],
+    category: "چراغ",
+  },
+  {
+    id: 14,
+    title: "گلدان ونتورا",
+    description:
+      "گلدان تنها محفظه‌ای برای نگهداری گل و گیاه نیست عنصری از زیبایی و طراوت است که به فضا روح می‌بخشد. طراحی مدرن کیفیت ماندگار و جلوه‌ای چشم‌نواز هر محیطی را به فضایی لوکس، دلنشین و سرشار از حس زندگی تبدیل می‌کند.",
+    price: 4600000,
+    discount: 12,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد باکتری",
+        "مقاومت بالا در برابر ضربه",
+        "طراحی لوکس",
+      ],
+      technical: [
+        "بتن سبک",
+        "بدون سوخت",
+        "رنگ ضد آب",
+        "50 x 50 cm",
+        "14 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/pots/pot-ventura-one.png",
+      "/images/products/pots/pot-ventura-two.png",
+      "/images/products/pots/pot-ventura-three.png",
+      "/images/products/pots/pot-ventura-four.png",
+    ],
+    category: "گلدان",
+  },
+  {
+    id: 15,
+    title: "سایه‌بان نووارا",
+    description:
+      "چتر و سایه‌بان تنها یک پوشش نیست نمادی از آرامش و آسایش در فضای باز شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر محیطی را به فضایی لوکس، خنک و دلنشین تبدیل می‌کند.",
+    price: 7400000,
+    discount: 10,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد پوسیدگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "چوب بامبو",
+        "بدون سوخت",
+        "لاک پلی اورتان",
+        "250 x 250 cm",
+        "16 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/shades/shade-novara-one.png",
+      "/images/products/shades/shade-novara-two.png",
+      "/images/products/shades/shade-novara-three.png",
+      "/images/products/shades/shade-novara-four.png",
+    ],
+    category: "سایه‌بان",
+  },
+  {
+    id: 16,
+    title: "صندلی استخر سولارا",
+    description:
+      "صندلی و تخت استخری تنها یک وسیله برای استراحت نیست گوشه‌ای از آرامش و لذت در فضای زندگی شماست. طراحی مدرن راحتی بی‌نظیر و کیفیت ماندگار هر کنار استخری را به فضایی لوکس، دلنشین و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 5400000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد رطوبت",
+        "مقاومت بالا در برابر آب",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "پلی پروپیلن",
+        "بدون سوخت",
+        "UV Stabilized",
+        "180 x 58 cm",
+        "5.5 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/chairs/chair-solara-one.png",
+      "/images/products/chairs/chair-solara-two.png",
+      "/images/products/chairs/chair-solara-three.png",
+      "/images/products/chairs/chair-solara-four.png",
+    ],
+    category: "صندلی",
+  },
+  {
+    id: 17,
+    title: "چراغ ولوره",
+    description:
+      "چراغ تنها یک منبع نور نیست؛ عنصری از زیبایی و آرامش است که به فضا جان می‌بخشد طراحی مدرن، نورپردازی چشم‌نواز و کیفیت ممتاز هر محیطی را به فضایی گرم، لوکس و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 5100000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد خوردگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "استیل ضد زنگ",
+        "برق شهری ۲۲۰V",
+        "پوشش کروم",
+        "H: 160 cm",
+        "5.1 kg",
+        "15W",
+      ],
+    },
+    images: [
+      "/images/products/lights/light-vellore-one.png",
+      "/images/products/lights/light-vellore-two.png",
+      "/images/products/lights/light-vellore-three.png",
+      "/images/products/lights/light-vellore-four.png",
+    ],
+    category: "چراغ",
+  },
+  {
+    id: 18,
+    title: "سایه‌بان آرئون",
+    description:
+      "چتر و سایه‌بان تنها یک پوشش نیست نمادی از آرامش و آسایش در فضای باز شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر محیطی را به فضایی لوکس، خنک و دلنشین تبدیل می‌کند.",
+    price: 13500000,
+    discount: 16,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد پوسیدگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "فولاد گالوانیزه",
+        "بدون سوخت",
+        "پارچه آکریلیک ۴۵۰D",
+        "400 x 400 cm",
+        "38 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/shades/shade-areon-one.png",
+      "/images/products/shades/shade-areon-two.png",
+      "/images/products/shades/shade-areon-three.png",
+      "/images/products/shades/shade-areon-four.png",
+    ],
+    category: "سایه‌بان",
+  },
+  {
+    id: 19,
+    title: "گلدان نووارا",
+    description:
+      "گلدان تنها محفظه‌ای برای نگهداری گل و گیاه نیست عنصری از زیبایی و طراوت است که به فضا روح می‌بخشد. طراحی مدرن کیفیت ماندگار و جلوه‌ای چشم‌نواز هر محیطی را به فضایی لوکس، دلنشین و سرشار از حس زندگی تبدیل می‌کند.",
+    price: 2900000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد باکتری",
+        "مقاومت بالا در برابر ضربه",
+        "طراحی لوکس",
+      ],
+      technical: [
+        "سرامیک پرسلان",
+        "بدون سوخت",
+        "لعاب شیشه‌ای",
+        "40 x 40 cm",
+        "11 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/pots/pot-novara-one.png",
+      "/images/products/pots/pot-novara-two.png",
+      "/images/products/pots/pot-novara-three.png",
+      "/images/products/pots/pot-novara-four.png",
+    ],
+    category: "گلدان",
+  },
+  {
+    id: 20,
+    title: "آتشدان ونتورا",
+    description:
+      "آتشدان تنها یک وسیله گرمایشی نیست؛ قلب تپنده دورهمی‌های شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر فضای باز را به محیطی لوکس و دعوت‌کننده تبدیل می‌کند.",
+    price: 16200000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "استیل ضد زنگ",
+        "مقاومت بالا در برابر حرارت",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "فولاد کورتن",
+        "چوب و زغال",
+        "رنگ نسوز مات",
+        "55 x 55 cm",
+        "31 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/hearths/hearth-ventura-one.png",
+      "/images/products/hearths/hearth-ventura-two.png",
+      "/images/products/hearths/hearth-ventura-three.png",
+      "/images/products/hearths/hearth-ventura-four.png",
+    ],
+    category: "آتشدان",
+  },
+  {
+    id: 21,
+    title: "چراغ سولارا",
+    description:
+      "چراغ تنها یک منبع نور نیست؛ عنصری از زیبایی و آرامش است که به فضا جان می‌بخشد طراحی مدرن، نورپردازی چشم‌نواز و کیفیت ممتاز هر محیطی را به فضایی گرم، لوکس و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 2900000,
+    discount: 15,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد خوردگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "آلمینیوم دایکاست",
+        "خورشیدی / شارژی",
+        "پوشش آنودایز",
+        "H: 90 cm",
+        "2.3 kg",
+        "6W",
+      ],
+    },
+    images: [
+      "/images/products/lights/light-solara-one.png",
+      "/images/products/lights/light-solara-two.png",
+      "/images/products/lights/light-solara-three.png",
+      "/images/products/lights/light-solara-four.png",
+    ],
+    category: "چراغ",
+  },
+  {
+    id: 22,
+    title: "سایه‌بان ولوره",
+    description:
+      "چتر و سایه‌بان تنها یک پوشش نیست نمادی از آرامش و آسایش در فضای باز شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر محیطی را به فضایی لوکس، خنک و دلنشین تبدیل می‌کند.",
+    price: 9800000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد پوسیدگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "چوب ترموود",
+        "بدون سوخت",
+        "رنگ ضد UV",
+        "280 x 280 cm",
+        "19 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/shades/shade-vellore-one.png",
+      "/images/products/shades/shade-vellore-two.png",
+      "/images/products/shades/shade-vellore-three.png",
+      "/images/products/shades/shade-vellore-four.png",
+    ],
+    category: "سایه‌بان",
+  },
+  {
+    id: 23,
+    title: "گلدان آرئون",
+    description:
+      "گلدان تنها محفظه‌ای برای نگهداری گل و گیاه نیست عنصری از زیبایی و طراوت است که به فضا روح می‌بخشد. طراحی مدرن کیفیت ماندگار و جلوه‌ای چشم‌نواز هر محیطی را به فضایی لوکس، دلنشین و سرشار از حس زندگی تبدیل می‌کند.",
+    price: 5800000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد باکتری",
+        "مقاومت بالا در برابر ضربه",
+        "طراحی لوکس",
+      ],
+      technical: [
+        "سنگ گرانیت",
+        "بدون سوخت",
+        "پولیش طبیعی",
+        "60 x 60 cm",
+        "32 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/pots/pot-areon-one.png",
+      "/images/products/pots/pot-areon-two.png",
+      "/images/products/pots/pot-areon-three.png",
+      "/images/products/pots/pot-areon-four.png",
+    ],
+    category: "گلدان",
+  },
+  {
+    id: 24,
+    title: "آتشدان نووارا",
+    description:
+      "آتشدان تنها یک وسیله گرمایشی نیست؛ قلب تپنده دورهمی‌های شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر فضای باز را به محیطی لوکس و دعوت‌کننده تبدیل می‌کند.",
+    price: 12800000,
+    discount: 20,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "استیل ضد زنگ",
+        "مقاومت بالا در برابر حرارت",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "ورق استیل ۳mm",
+        "چوب و زغال",
+        "رنگ کوره‌ای",
+        "45 x 45 cm",
+        "22 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/hearths/hearth-novara-one.png",
+      "/images/products/hearths/hearth-novara-two.png",
+      "/images/products/hearths/hearth-novara-three.png",
+      "/images/products/hearths/hearth-novara-four.png",
+    ],
+    category: "آتشدان",
+  },
+  {
+    id: 25,
+    title: "صندلی استخر ونتورا",
+    description:
+      "صندلی و تخت استخری تنها یک وسیله برای استراحت نیست گوشه‌ای از آرامش و لذت در فضای زندگی شماست. طراحی مدرن راحتی بی‌نظیر و کیفیت ماندگار هر کنار استخری را به فضایی لوکس، دلنشین و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 11800000,
+    discount: 13,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد رطوبت",
+        "مقاومت بالا در برابر آب",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "تیک اندونزی",
+        "بدون سوخت",
+        "روغن تیک طبیعی",
+        "210 x 75 cm",
+        "15 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/chairs/chair-ventura-one.png",
+      "/images/products/chairs/chair-ventura-two.png",
+      "/images/products/chairs/chair-ventura-three.png",
+      "/images/products/chairs/chair-ventura-four.png",
+    ],
+    category: "صندلی",
+  },
+  {
+    id: 26,
+    title: "سایه‌بان والورا",
+    description:
+      "چتر و سایه‌بان تنها یک پوشش نیست نمادی از آرامش و آسایش در فضای باز شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر محیطی را به فضایی لوکس، خنک و دلنشین تبدیل می‌کند.",
+    price: 15900000,
+    discount: 15,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد پوسیدگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "استیل ضد زنگ ۳۱۶",
+        "بدون سوخت",
+        "پارچه HDPE ۳۴۰gsm",
+        "500 x 500 cm",
+        "55 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/shades/shade-valora-one.png",
+      "/images/products/shades/shade-valora-two.png",
+      "/images/products/shades/shade-valora-three.png",
+      "/images/products/shades/shade-valora-four.png",
+    ],
+    category: "سایه‌بان",
+  },
+  {
+    id: 27,
+    title: "آتشدان والورا",
+    description:
+      "آتشدان تنها یک وسیله گرمایشی نیست؛ قلب تپنده دورهمی‌های شماست طراحی مینیمال، کیفیت ممتاز و جلوه‌ای چشمگیر که هر فضای باز را به محیطی لوکس و دعوت‌کننده تبدیل می‌کند.",
+    price: 27300000,
+    discount: 10,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "استیل ضد زنگ",
+        "مقاومت بالا در برابر حرارت",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "فولاد کورتن ۵mm",
+        "چوب و زغال",
+        "پتینه طبیعی",
+        "80 x 80 cm",
+        "58 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/hearths/hearth-valora-one.png",
+      "/images/products/hearths/hearth-valora-two.png",
+      "/images/products/hearths/hearth-valora-three.png",
+      "/images/products/hearths/hearth-valora-four.png",
+    ],
+    category: "آتشدان",
+  },
+  {
+    id: 28,
+    title: "گلدان والورا",
+    description:
+      "گلدان تنها محفظه‌ای برای نگهداری گل و گیاه نیست عنصری از زیبایی و طراوت است که به فضا روح می‌بخشد. طراحی مدرن کیفیت ماندگار و جلوه‌ای چشم‌نواز هر محیطی را به فضایی لوکس، دلنشین و سرشار از حس زندگی تبدیل می‌کند.",
+    price: 3700000,
+    discount: 16,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد باکتری",
+        "مقاومت بالا در برابر ضربه",
+        "طراحی لوکس",
+      ],
+      technical: [
+        "ترکیب سنگ و رزین",
+        "بدون سوخت",
+        "رنگ اپوکسی",
+        "55 x 55 cm",
+        "24 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/pots/pot-valora-one.png",
+      "/images/products/pots/pot-valora-two.png",
+      "/images/products/pots/pot-valora-three.png",
+      "/images/products/pots/pot-valora-four.png",
+    ],
+    category: "گلدان",
+  },
+  {
+    id: 29,
+    title: "صندلی استخر والورا",
+    description:
+      "صندلی و تخت استخری تنها یک وسیله برای استراحت نیست گوشه‌ای از آرامش و لذت در فضای زندگی شماست. طراحی مدرن راحتی بی‌نظیر و کیفیت ماندگار هر کنار استخری را به فضایی لوکس، دلنشین و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 14200000,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد رطوبت",
+        "مقاومت بالا در برابر آب",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "وینیل روتان مصنوعی",
+        "بدون سوخت",
+        "فریم آلمینیوم پودری",
+        "205 x 80 cm",
+        "13 kg",
+        "—",
+      ],
+    },
+    images: [
+      "/images/products/chairs/chair-valora-one.png",
+      "/images/products/chairs/chair-valora-two.png",
+      "/images/products/chairs/chair-valora-three.png",
+      "/images/products/chairs/chair-valora-four.png",
+    ],
+    category: "صندلی",
+  },
+  {
+    id: 30,
+    title: "چراغ والورا",
+    description:
+      "چراغ تنها یک منبع نور نیست؛ عنصری از زیبایی و آرامش است که به فضا جان می‌بخشد طراحی مدرن، نورپردازی چشم‌نواز و کیفیت ممتاز هر محیطی را به فضایی گرم، لوکس و فراموش‌نشدنی تبدیل می‌کند.",
+    price: 7800000,
+    discount: 20,
+    features: {
+      public: [
+        "مناسب برای فضای باز",
+        "ضد خوردگی",
+        "مقاومت بالا در برابر شرایط محیطی",
+        "طراحی ایمن",
+      ],
+      technical: [
+        "مس خالص",
+        "برق شهری ۲۲۰V",
+        "پتینه برنزی دست‌ساز",
+        "H: 260 cm",
+        "9.4 kg",
+        "24W",
+      ],
+    },
+    images: [
+      "/images/products/lights/light-valora-one.png",
+      "/images/products/lights/light-valora-two.png",
+      "/images/products/lights/light-valora-three.png",
+      "/images/products/lights/light-valora-four.png",
+    ],
+    category: "چراغ",
+  },
+];
