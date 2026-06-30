@@ -29,6 +29,14 @@ const formatPrice = (v: number) => v.toLocaleString("fa-IR");
 const discountedPrice = (price: number, discount?: number) =>
   discount ? Math.round(price - price * (discount / 100)) : price;
 
+const categorySlugs: Record<Exclude<Category, "همه">, string> = {
+  سایه‌بان: "shade",
+  گلدان: "pot",
+  آتشدان: "hearth",
+  صندلی: "chair",
+  چراغ: "light",
+};
+
 // ─── Image Gallery ────────────────────────────────────────────────────────────
 const ImageGallery = ({
   images,
@@ -617,6 +625,56 @@ const FeaturesAccordion = ({ features }: { features: Product["features"] }) => {
   );
 };
 
+// ─── Breadcrumbs ──────────────────────────────────────────────────────────────
+interface BreadcrumbItem {
+  label: string;
+  to?: string; // omit for the current (non-clickable) page
+}
+
+const Breadcrumbs = ({ items }: { items: BreadcrumbItem[] }) => {
+  return (
+    <nav
+      dir="rtl"
+      aria-label="breadcrumb"
+      className="overflow-x-auto no-scrollbar"
+    >
+      <style>{`
+        .no-scrollbar { scrollbar-width: none; -ms-overflow-style: none; }
+        .no-scrollbar::-webkit-scrollbar { display: none; width: 0; height: 0; }
+      `}</style>
+      <ol className="flex items-center gap-1 text-xs text-gray-400 whitespace-nowrap">
+        {items.map((item, i) => {
+          const isLast = i === items.length - 1;
+          return (
+            <li key={i} className="flex items-center gap-1">
+              {item.to && !isLast ? (
+                <Link
+                  to={item.to}
+                  className="hover:text-blue-500 transition-colors"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <span
+                  className={
+                    isLast
+                      ? "text-gray-600 font-medium truncate max-w-35 sm:max-w-xs"
+                      : ""
+                  }
+                  aria-current={isLast ? "page" : undefined}
+                >
+                  {item.label}
+                </span>
+              )}
+              {!isLast && <span className="text-gray-300 select-none">/</span>}
+            </li>
+          );
+        })}
+      </ol>
+    </nav>
+  );
+};
+
 // ─── Product Detail ───────────────────────────────────────────────────────────
 function ProductDetail() {
   const { id } = useParams<{ id: string }>();
@@ -661,25 +719,22 @@ function ProductDetail() {
 
   return (
     <div className="space-y-3">
-      {/* Back */}
-      <Link
-        to="/products"
-        className="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-blue-500 transition-colors"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          className="size-3"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <polyline points="9 18 15 12 9 6" />
-        </svg>
-        بازگشت به محصولات
-      </Link>
+      {/* Breadcrumbs */}
+      <Breadcrumbs
+        items={[
+          { label: "خانه", to: "/" },
+          { label: "محصولات", to: "/products" },
+          ...(product.category && product.category !== "همه"
+            ? [
+                {
+                  label: product.category,
+                  to: `/products/${categorySlugs[product.category]}`,
+                },
+              ]
+            : []),
+          { label: product.title },
+        ]}
+      />
 
       {/* ── Two-column on md+, stacked on mobile ── */}
       <div className="md:grid md:grid-cols-2 md:gap-3 md:items-stretch space-y-3 md:space-y-0">
