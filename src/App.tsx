@@ -5,7 +5,8 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import ContactUs from "./pages/ContactUs";
 import Products from "./pages/Products";
-import ProductID from "./pages/Products/ProductID";
+import ProductsCategory from "./pages/Products/category";
+import ProductID from "./pages/Product";
 
 function App() {
   const [locale, _] = useState("fa");
@@ -24,7 +25,8 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact-us" element={<ContactUs />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/products/:id" element={<ProductID />} />
+        <Route path="/products/:category" element={<ProductsCategory />} />
+        <Route path="/product/:id" element={<ProductID />} />
       </Routes>
     </Layout>
   );

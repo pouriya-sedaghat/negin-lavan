@@ -3,11 +3,31 @@ import { Link } from "react-router-dom";
 
 const Home = () => {
   const categories = [
-    { to: "shades", src: "shades/main.png", alt: "shades" },
-    { to: "pots", src: "pots/main.png", alt: "pots" },
-    { to: "hearths", src: "hearths/main.png", alt: "hearths" },
-    { to: "pool-chairs", src: "pool-chairs/main.png", alt: "pool chairs" },
-    { to: "lights", src: "lights/main.png", alt: "lights" },
+    {
+      to: "/products/shade",
+      src: "/images/products/shades/main.png",
+      alt: "shade category",
+    },
+    {
+      to: "/products/pot",
+      src: "/images/products/pots/main.png",
+      alt: "pot category",
+    },
+    {
+      to: "/products/hearth",
+      src: "/images/products/hearths/main.png",
+      alt: "hearth category",
+    },
+    {
+      to: "/products/chair",
+      src: "/images/products/chairs/main.png",
+      alt: "chair category",
+    },
+    {
+      to: "/products/light",
+      src: "/images/products/lights/main.png",
+      alt: "light category",
+    },
   ];
 
   useEffect(() => {
@@ -32,14 +52,10 @@ const Home = () => {
         {categories.map((category, index) => (
           <div
             key={index.toString()}
-            className="w-35  rounded-full overflow-hidden"
+            className="w-35 rounded-lg overflow-hidden ring-1 ring-transparent transition-all duration-300 ease-out hover:scale-105 hover:shadow-md hover:ring-gray-300"
           >
-            <Link to={`/products/${category.to}`}>
-              <img
-                src={`/images/products/${category.src}`}
-                alt={category.alt}
-                className="w-full"
-              />
+            <Link to={category.to}>
+              <img src={category.src} alt={category.alt} className="w-full" />
             </Link>
           </div>
         ))}

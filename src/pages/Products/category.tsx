@@ -1,8 +1,9 @@
 import { useRef, useState, useMemo } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { products } from "./../../data/products";
 
 type Category = "همه" | "سایه‌بان" | "گلدان" | "آتشدان" | "صندلی" | "چراغ";
+
 type Brand = "سولارا" | "ولوره" | "آرئون" | "نووارا" | "ونتورا" | "والورا";
 
 interface Product {
@@ -52,10 +53,14 @@ const fuzzyMatch = (query: string, target: string): boolean => {
 };
 
 // ─── Special Offers ───────────────────────────────────────────────────────────
-const SpecialOffers = () => {
-  const specialProducts: Product[] = products.filter(
-    (p): p is Product => (p as Product).discount !== undefined,
-  );
+const SpecialOffers = ({ initialCategory }: { initialCategory?: Category }) => {
+  const specialProducts: Product[] = products.filter((p): p is Product => {
+    const matchCat =
+      !initialCategory ||
+      initialCategory === "همه" ||
+      p.category === initialCategory;
+    return (p as Product).discount !== undefined && matchCat;
+  });
 
   const trackRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
@@ -205,12 +210,12 @@ const SpecialOffers = () => {
 };
 
 // ─── Product Grid ─────────────────────────────────────────────────────────────
-const ProductGrid = () => {
-  const [category, setCategory] = useState<Category>("همه");
-  const [brand, setBrand] = useState<Brand | "همه">("همه");
+const ProductGrid = ({ initialCategory }: { initialCategory?: Category }) => {
+  const [category, setCategory] = useState<Category>(initialCategory ?? "همه");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(6);
+  const [brand, setBrand] = useState<Brand | "همه">("همه");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const [brandOpen, setBrandOpen] = useState(false);
   const [pageSizeOpen, setPageSizeOpen] = useState(false);
@@ -329,20 +334,72 @@ const ProductGrid = () => {
 
       {/* Row 2: dropdowns on one line, product count below on mobile / inline on sm+ */}
       <div className="flex flex-wrap items-center gap-2">
-        {/* Category dropdown */}
-        <div className="relative shrink-0">
-          <button
-            onClick={() => {
-              setDropdownOpen((o) => !o);
-              setBrandOpen(false);
-              setPageSizeOpen(false);
-            }}
-            className={`w-full flex items-center gap-1.5 h-9 px-3 rounded-lg border text-sm transition-all ${
-              dropdownOpen || category !== "همه"
-                ? "bg-blue-500 text-white border-blue-500"
-                : "bg-white text-gray-500 border-gray-200 hover:border-gray-300"
-            }`}
-          >
+        {/* Category dropdown — locked when navigated from home page */}
+        {!initialCategory ? (
+          <div className="relative shrink-0">
+            <button
+              onClick={() => {
+                setDropdownOpen((o) => !o);
+                setBrandOpen(false);
+                setPageSizeOpen(false);
+              }}
+              className={`w-full flex items-center gap-1.5 h-9 px-3 rounded-lg border text-sm transition-all ${
+                dropdownOpen || category !== "همه"
+                  ? "bg-blue-500 text-white border-blue-500"
+                  : "bg-white text-gray-500 border-gray-200 hover:border-gray-300"
+              }`}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-4 h-4 shrink-0"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="4" y1="6" x2="20" y2="6" />
+                <line x1="8" y1="12" x2="16" y2="12" />
+                <line x1="11" y1="18" x2="13" y2="18" />
+              </svg>
+              <span className="text-xs font-medium whitespace-nowrap">
+                {category === "همه" ? "دسته‌بندی" : category}
+              </span>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className={`w-3 h-3 mr-auto transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <polyline points="6 9 12 15 18 9" />
+              </svg>
+            </button>
+
+            {dropdownOpen && (
+              <div className="absolute right-0 top-[calc(100%+6px)] z-20 w-full bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden">
+                {CATEGORIES.map((cat) => (
+                  <button
+                    key={cat}
+                    onClick={() => handleCategory(cat)}
+                    className={`w-full text-right px-4 py-2.5 text-sm transition-colors ${
+                      category === cat
+                        ? "text-blue-500 font-semibold bg-blue-50"
+                        : "text-gray-600 hover:bg-gray-50"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        ) : (
+          <div className="flex items-center gap-1.5 h-9 px-3 rounded-lg border border-blue-200 bg-blue-50 text-blue-600 shrink-0">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="w-4 h-4 shrink-0"
@@ -357,41 +414,11 @@ const ProductGrid = () => {
               <line x1="8" y1="12" x2="16" y2="12" />
               <line x1="11" y1="18" x2="13" y2="18" />
             </svg>
-            <span className="text-xs font-medium whitespace-nowrap">
-              {category === "همه" ? "دسته‌بندی" : category}
+            <span className="text-xs font-semibold whitespace-nowrap">
+              {category}
             </span>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className={`w-3 h-3 mr-auto transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <polyline points="6 9 12 15 18 9" />
-            </svg>
-          </button>
-
-          {dropdownOpen && (
-            <div className="absolute right-0 top-[calc(100%+6px)] z-20 w-full bg-white border border-gray-100 rounded-xl shadow-lg overflow-hidden">
-              {CATEGORIES.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => handleCategory(cat)}
-                  className={`w-full text-right px-4 py-2.5 text-sm transition-colors ${
-                    category === cat
-                      ? "text-blue-500 font-semibold bg-blue-50"
-                      : "text-gray-600 hover:bg-gray-50"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
+          </div>
+        )}
 
         {/* Brand dropdown */}
         <div className="relative shrink-0">
@@ -742,12 +769,42 @@ const ProductGrid = () => {
   );
 };
 
+// ─── Slug → Category mapping ──────────────────────────────────────────────────
+const SLUG_TO_CATEGORY: Record<string, Category> = {
+  shade: "سایه‌بان",
+  pot: "گلدان",
+  hearth: "آتشدان",
+  chair: "صندلی",
+  light: "چراغ",
+};
+
 // ─── Main ─────────────────────────────────────────────────────────────────────
-const Products = () => (
-  <div className="space-y-3">
-    <SpecialOffers />
-    <ProductGrid />
-  </div>
-);
+const Products = () => {
+  const { category: categoryParam } = useParams<{ category?: string }>();
+
+  const initialCategory: Category | undefined = categoryParam
+    ? (SLUG_TO_CATEGORY[categoryParam.toLowerCase()] ??
+      (CATEGORIES.includes(categoryParam as Category)
+        ? (categoryParam as Category)
+        : undefined))
+    : undefined;
+
+  return (
+    <div className="space-y-3">
+      {initialCategory && (
+        <div className="flex items-center justify-between px-1">
+          <h1 className="text-sm font-semibold text-gray-700">
+            {initialCategory}
+          </h1>
+          <Link to="/products" className="text-xs text-blue-500">
+            همه دسته‌ها
+          </Link>
+        </div>
+      )}
+      <SpecialOffers initialCategory={initialCategory} />
+      <ProductGrid initialCategory={initialCategory} />
+    </div>
+  );
+};
 
 export default Products;
