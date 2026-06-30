@@ -13,7 +13,7 @@ const Header = () => {
   const { pathname } = useLocation();
 
   return (
-    <header className="container mx-auto bg-gray-100 border-2 rounded-lg p-2">
+    <header className="container mx-auto bg-gray-100 border-2 rounded-lg p-2 relative">
       {/* Main row */}
       <div className="flex justify-between items-center gap-3">
         {/* Left: hamburger (small only) + user avatar (sm+) + brand */}
@@ -101,7 +101,7 @@ const Header = () => {
 
       {/* Mobile dropdown nav */}
       {menuOpen && (
-        <nav className="sm:hidden mt-2 border-t pt-2">
+        <nav className="sm:hidden absolute -left-0.5 -right-0.5 top-full mt-2 bg-gray-100 border-2 rounded-lg p-2 shadow-lg z-50">
           <ul className="flex flex-col gap-1">
             {navLinks.map(({ to, label }) => {
               const isActive = pathname === to;

@@ -1,6 +1,9 @@
 import { useEffect } from "react";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 const ContactUs = () => {
+  usePageTitle("Contact Us");
+
   useEffect(() => {
     document.body.style.backgroundImage = "url('/images/background/main.png')";
     document.body.style.backgroundSize = "cover";

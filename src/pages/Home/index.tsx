@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 const Home = () => {
   const categories = [
@@ -29,6 +30,8 @@ const Home = () => {
       alt: "light category",
     },
   ];
+
+  usePageTitle("Home");
 
   useEffect(() => {
     document.body.style.backgroundImage = "url('/images/background/main.png')";

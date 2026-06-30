@@ -1,6 +1,7 @@
 import { useRef, useState, useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { products } from "./../../data/products";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 type Category = "همه" | "سایه‌بان" | "گلدان" | "آتشدان" | "صندلی" | "چراغ";
 
@@ -788,6 +789,8 @@ const Products = () => {
         ? (categoryParam as Category)
         : undefined))
     : undefined;
+
+  usePageTitle(categoryParam ?? "Products");
 
   return (
     <div className="space-y-3">

@@ -1,6 +1,7 @@
 import { useRef, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { products } from "./../../data/products";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 type Category = "همه" | "سایه‌بان" | "گلدان" | "آتشدان" | "صندلی" | "چراغ";
 type Brand = "سولارا" | "ولوره" | "آرئون" | "نووارا" | "ونتورا" | "والورا";
@@ -743,11 +744,15 @@ const ProductGrid = () => {
 };
 
 // ─── Main ─────────────────────────────────────────────────────────────────────
-const Products = () => (
-  <div className="space-y-3">
-    <SpecialOffers />
-    <ProductGrid />
-  </div>
-);
+const Products = () => {
+  usePageTitle("Products");
+
+  return (
+    <div className="space-y-3">
+      <SpecialOffers />
+      <ProductGrid />
+    </div>
+  );
+};
 
 export default Products;

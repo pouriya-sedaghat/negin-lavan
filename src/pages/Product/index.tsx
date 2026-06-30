@@ -1,6 +1,7 @@
 import { useState, useRef, useCallback } from "react";
 import { useParams, Link } from "react-router-dom";
 import { products } from "./../../data/products";
+import { usePageTitle } from "../../hooks/usePageTitle";
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 type Category = "همه" | "سایه‌بان" | "گلدان" | "آتشدان" | "صندلی" | "چراغ";
@@ -1036,6 +1037,8 @@ const SimilarProducts = ({
 const ProductID = () => {
   const { id } = useParams<{ id: string }>();
   const product = (products as Product[]).find((p) => p.id === Number(id));
+
+  usePageTitle("Product");
 
   return (
     <div className="space-y-3">
