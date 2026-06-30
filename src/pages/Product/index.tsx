@@ -666,7 +666,22 @@ const Breadcrumbs = ({ items }: { items: BreadcrumbItem[] }) => {
                   {item.label}
                 </span>
               )}
-              {!isLast && <span className="text-gray-300 select-none">/</span>}
+              {!isLast && (
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="text-gray-300 rotate-180 shrink-0"
+                  aria-hidden="true"
+                >
+                  <path d="M9 18l6-6-6-6" />
+                </svg>
+              )}
             </li>
           );
         })}
